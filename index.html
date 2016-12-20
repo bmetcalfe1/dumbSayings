@@ -7,6 +7,11 @@
 </head>
 <body>
 
+  <div class="text-box">
+  <h1>"What Are You Saying?"</h1>
+    <p>Some of the many variations of this common phrase overheard in North Toronto, Canada.</p>
+    <p> It is captured here for it's historical value. Use your keyboard to unlock this pearl of Canadian heritage and culture.</p>
+  </div>
 
   <div class="keys">
     <div data-key="65" class="key">
@@ -15,7 +20,7 @@
     </div>
     <div data-key="83" class="key">
       <kbd>S</kbd>
-      <span class="sound">What have you been up to lately?</span>
+      <span class="sound">What do you do for work?</span>
     </div>
     <div data-key="68" class="key">
       <kbd>D</kbd>
@@ -23,11 +28,11 @@
     </div>
     <div data-key="70" class="key">
       <kbd>F</kbd>
-      <span class="sound">What's up? What are you doing?</span>
+      <span class="sound">What's up? What's good?</span>
     </div>
     <div data-key="71" class="key">
       <kbd>G</kbd>
-      <span class="sound">What do you want to do tonight?</span>
+      <span class="sound">What are you doing tonight?</span>
     </div>
     <div data-key="72" class="key">
       <kbd>H</kbd>
@@ -35,7 +40,7 @@
     </div>
     <div data-key="74" class="key">
       <kbd>J</kbd>
-      <span class="sound">What are you doing tonight?</span>
+      <span class="sound">What are you doing tomorrow?</span>
     </div>
   </div>
 
@@ -47,27 +52,7 @@
   <audio data-key="72" src="sounds/evensayingman.wav"></audio>
   <audio data-key="74" src="sounds/gunnasaytmrw.wav"></audio>
 
-<script>
-
-
-  function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-    if (!audio) return; // stop the function from running all together
-    audio.currentTime = 0; // rewind to the start
-    audio.play();
-    key.classList.add('playing');
-  }
-  function removeTransition(e) {
-    if (e.propertyName !== 'transform') return; // skip it if it's not a transform
-    this.classList.remove('playing');
-  }
-
-  const keys = document.querySelectorAll('.key');
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-  window.addEventListener('keydown', playSound);
-
-</script>
+  <script src="sayings.js"></script>
 
 </body>
 </html>
